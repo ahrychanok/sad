@@ -1,0 +1,9 @@
+     <Logger name="com.smarsh.admin.api.repository" level="TRACE" additivity="false">
+        <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.mybatis" level="TRACE" additivity="false">
+   <AppenderRef ref="Console" />
+  </Logger>
+  <Logger name="java.sql" level="TRACE" additivity="false">
+   <AppenderRef ref="Console" />
+  </Logger>
