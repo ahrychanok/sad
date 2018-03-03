@@ -12,7 +12,8 @@ public class PathUtil {
     }
 
     public static String resolvePath(TemplateXmlModel template) {
-        String path;
+        String path = null;
+		path.toString();
         if (template.getClientId() != null) {
             path =
                 StringUtils.join(template.getType()
