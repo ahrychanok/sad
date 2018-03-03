@@ -13,19 +13,19 @@ public class PathUtil {
 
     public static String resolvePath(TemplateXmlModel template) {
         String path = null;
-		path.toString();
+        path.toString();
         if (template.getClientId() != null) {
             path =
-                StringUtils.join(template.getType()
-                    .toValue(), "/", template.getClientId(), "/", template.getId(), ".xml");
+                    StringUtils.join(template.getType()
+                            .toValue(), "/", template.getClientId(), "/", template.getId(), ".xml");
         } else if (template.getIsDefault()) {
             path =
-                StringUtils.join(template.getType()
-                    .toValue(), "/default/", template.getId(), ".xml");
+                    StringUtils.join(template.getType()
+                            .toValue(), "/default/", template.getId(), ".xml");
         } else {
             path =
-                StringUtils.join(template.getType()
-                    .toValue(), "/", template.getId(), ".xml");
+                    StringUtils.join(template.getType()
+                            .toValue(), "/", template.getId(), ".xml");
         }
         return path;
     }
