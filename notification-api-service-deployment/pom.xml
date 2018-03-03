@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>notification-api-service-deployment</artifactId>
+    <version>3.00.0001-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>notification-api-service-deployment</name>
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>com.smarsh</groupId>
+        <artifactId>notification-api</artifactId>
+        <version>[3.00,3.01]</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <core-rest-service.version>[3.00,3.01]</core-rest-service.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>core-rest-service</artifactId>
+            <version>${core-rest-service.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.smarsh</groupId>
+                <artifactId>api-boot-container-maven-plugin</artifactId>
+                <configuration>
+                    <!-- <serviceVersions>
+                         <serviceVersion>3.00.0001-SNAPSHOT</serviceVersion>
+                     </serviceVersions>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+

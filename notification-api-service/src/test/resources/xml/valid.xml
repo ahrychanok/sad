@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<notification-template>
+    <id>4fc29d8d-fbe0-4054-813d-9131e380cbc9</id>
+    <type>exportNotification</type>
+    <name>some name</name>
+    <subject>some subject</subject>
+    <description>description</description>
+    <engine>THYMELEAF</engine>
+    <template>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Export Notification&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;br&gt;
+&lt;center&gt;
+  &lt;table id="templateContainer" style="border: 1px solid #dddddd; background-color: #ffffff; width: 95%; max-width: 600px;" border="0" cellpadding="0" cellspacing="0"&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td style="border-collapse: collapse;" align="center" valign="top"&gt;
+          &lt;table id="templateHeader" style="background-color: #ffffff; border-bottom: 0px none; width: 100%;" border="0" cellpadding="0" cellspacing="0"&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td class="headerContent" style="border-collapse: collapse; color: #202020; font-family: Arial; font-size: 34px; font-weight: bold; line-height: 100%; padding: 0; text-align: center; vertical-align: middle;"&gt;
+                  &lt;br&gt;&lt;img src="http://www2.smarsh.com/l/9442/2012-08-15/7jkv2/9442/59181/smarshlogo.png" style="max-width: 600px; border: 0px none; height: auto; line-height: 100%; outline: medium none; text-decoration: none; vertical-align: middle;" id="headerImage campaign-icon" alt="Smarsh logo" title="Smarsh logo" height="55" align="middle" width="198"&gt;
+                  &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+          &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style="border-collapse: collapse;" align="center" valign="top"&gt;
+          &lt;table style="width: 100%;" id="templateBody" border="0" cellpadding="0" cellspacing="0"&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td class="bodyContent" style="border-collapse: collapse; background-color: #ffffff;" valign="top"&gt;
+                  &lt;table style="width: 100%;" border="0" cellpadding="20" cellspacing="0"&gt;
+                    &lt;tbody&gt;
+                      &lt;tr&gt;
+                        &lt;td style="border-collapse: collapse;" valign="top"&gt;&lt;div style="color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"&gt;
+                                                      &lt;br&gt;
+                            Hello [[${firstName}]] [[${lastName}]],&lt;br&gt;
+
+&lt;br&gt;
+                           Export &lt;strong&gt;[[${exportName}]]&lt;/strong&gt; has completed and is available for download. Please visit the following link: &lt;a href="@{${link}}"&gt;[[${link}]]&lt;/a&gt;
+                           &lt;br&gt;
+                           &lt;br&gt;
+                           Downloads are avaliable for 30 days.
+                         &lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+&lt;div style="color: #505050; font-family: Arial; font-size: 14px; line-height: 150%; text-align: left;"&gt;&lt;/div&gt;
+                          &lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                  &lt;/table&gt;
+                  &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+          &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style="border-collapse: collapse;" align="center" valign="top"&gt;
+          &lt;table id="templateFooter" style="background-color: #ffffff; border-top: 0px none; width: 100%;" border="0" cellpadding="10" cellspacing="0"&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;
+                &lt;td class="footerContent" style="border-collapse: collapse;" valign="top"&gt;
+                  &lt;table style="width: 100%;" border="0" cellpadding="10" cellspacing="0"&gt;
+                    &lt;tbody&gt;
+                      &lt;tr style="background-color: #f4f4f4;"&gt;
+                        &lt;td style="border-collapse: collapse;" valign="top" width="350"&gt;&lt;div style="color: #707070; font-family: Arial; font-size: 9px; line-height: 125%; text-align: left;"&gt;&lt;span style="font-size: 10px"&gt;Phone 1-866-SMARSH-1&lt;br&gt;
+                          Copyright © 2016, All rights reserved.&lt;/span&gt;
+&lt;div style="color: #707070; font-family: Arial; font-size: 12px; line-height: 125%; text-align: left;"&gt;&lt;/div&gt;
+                        &lt;/div&gt;&lt;/td&gt;
+                        &lt;td id="bottomtable" style="border-collapse: collapse;" valign="top" width="190"&gt;&lt;div style="color: #707070; font-family: Arial; font-size: 10px; line-height: 125%; text-align: left;"&gt;Smarsh, Inc.&lt;br&gt;
+                          851 SW 6th Avenue Ste. 800&lt;br&gt;
+                        Portland, OR 97204&lt;/div&gt;&lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                  &lt;/table&gt;
+                 &lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+          &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</template>
+    <isDefault>true</isDefault>
+</notification-template>

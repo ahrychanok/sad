@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<style>
+    body {
+        font-family: Calibri;
+    }
+
+    #messageTable, #documentText, table {
+        width: 100%;
+        font-family: Calibri;
+    }
+
+    #bodyDiv, #documentText, #documentType, #fromTo {
+        font-size: 13px;
+        text-align: left;
+        vertical-align: top;
+        height: auto;
+        word-break: break-all;
+    }
+
+    #bodyDiv, #documentText {
+        padding: 5px;
+    }
+
+    #documentText {
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+        margin: 0px 0px 0px 0px;
+    }
+
+    #bodyDiv {
+        border: 1px solid #E0E0E0;
+        margin: 0px 0px 0px 0px;
+    }
+
+    #messageTable {
+        border: 1px solid #8E8E8E;
+    }
+
+    #relatedObjectName {
+        text-align: left;
+        margin-top: -5;
+        margin-bottom: 0;
+        text-decoration: underline;
+    }
+
+    #relatedObjectType {
+        text-align: left;
+        margin-top: 5;
+        margin-bottom: 0;
+        color: #808080;
+    }
+
+    #isLinked {
+        text-align: left;
+        margin: 5px;
+        font-style: italic;
+    }
+
+    #bodyDate {
+        text-align: left;
+        margin: 5px 0px 5px 0px;
+        font-style: italic;
+    }
+
+    #bigAttachments {
+        text-align: left;
+        margin: 5px;
+        font-style: italic;
+        vertical-align: top;
+    }
+
+    #documentType, #fromTo {
+        text-align: left;
+        margin: 5px 0px 5px 0px;
+    }
+</style>
+<body>
+    <table id="messageTable" cellpadding="5%">
+        <tr>
+            <td>
+                <p id="documentType">[[${documentType}]]</p>
+                <p id="fromTo">
+                    [[${sender}]]&nbsp;To&nbsp;[[${recipients}]]
+                </p>
+                <div id="bodyDiv">
+                    <pre id="documentText">[[${text}]]</pre>
+                    <div th:if="${links != null}">
+                        <h6 id="isLinked" th:each="link:${links}">
+                            Link Attached:
+                            <a th:href="@{${link}}">
+                                [[${link}]]
+                            </a>
+                        </h6>
+                    </div>
+                    <div th:if="${bigAttachmentsLines != null}">
+                        <h6 id="attachments" th:each="excludedAttachment:${bigAttachmentsLines}" >
+                            [[${excludedAttachment}]]
+                        </h6>
+                    </div>
+                 </div>
+                <h6 id="bodyDate">[[${#dates.format(documentDate, 'MMMM dd, yyyy hh:mm a')}]] (UTC)</h6>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

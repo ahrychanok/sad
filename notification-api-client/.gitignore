@@ -5,5 +5,4 @@
 test-output/
 /bin/
 *.iml
-/logs/
-/.sonar/
+.sonar/

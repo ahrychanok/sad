@@ -1,0 +1,24 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+	<div style="font-family:calibri,sans-serif; font-size:15px;">
+		Hello [[${Custom_DisplayName}]],<br />
+		<br />
+		You are receiving this email because you made a request to reset the password for your [[${ProductName}]] account. 
+		If you do not wish to reset your password or did not request a password reset, please ignore this message or 
+		report this incident to our Support team at [[${ProductSupportToEmail}]][[${Custom_FormattedSupportPhone}]].
+		<br />
+		<br />
+		To create a new password, click or copy-and-paste the following link into your browser:<br />
+		<a th:href="@{${ProductBaseUrl} + '/AuthenticationRecovery/ResetPassword?rh=' + ${Custom_RecoveryHash} + '&uh=' + ${Custom_UserHash}}">
+			[[${ProductBaseUrl}]]/AuthenticationRecovery/ResetPassword?rh=[[${Custom_RecoveryHash}]]&uh=[[${Custom_UserHash}]]</a>
+		<br />
+		<br />
+		Thank you,<br />
+		<br />
+		[[${ProductCompanyName}]]<br />
+		[[${ProductSupportFromEmail}]]<br />
+		<a th:href="@{${ProductLoginUrl}}">[[${ProductLoginUrl}]]</a><br />
+		<br />
+		Do not reply to this email.  This is an automated system message.<br />
+		<br />
+	</div>
+</div>

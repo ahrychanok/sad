@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  #  annotations:
+  #  service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+  labels:
+    chart: {{ .Chart.Name }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+  name: {{ template "shortname" . }}
+  namespace: {{ .Values.Namespace | default .Release.Namespace }}
+spec:
+  ports:
+  - name: http
+    port: {{ .Values.Port.Service }}
+    protocol: TCP
+    targetPort:  {{ .Values.Port.Container }}
+  selector:
+    component: {{ template "fullname" . }}
+  type: {{ .Values.Service.Type }}

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.smarsh</groupId>
+        <artifactId>notification-api</artifactId>
+        <version>[3.00,3.01]</version>
+    </parent>
+
+    <artifactId>notification-api-service</artifactId>
+    <version>3.00.0001-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>notification-api-service</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <activemq-messagequeueing.version>[3.00,3.01]</activemq-messagequeueing.version>
+        <core-messagequeueing.version>[3.00,3.01]</core-messagequeueing.version>
+        <core-io.version>[3.00,3.01]</core-io.version>
+        <core-rest-service.version>[3.00,3.01]</core-rest-service.version>
+        <core-rest-client.version>[3.00,3.01]</core-rest-client.version>
+        <notification-api-client.version>[3.00,3.01]</notification-api-client.version>
+        <archive-api-client.version>[3.00,3.01]</archive-api-client.version>
+        <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <activemq-messagequeueing.version>3.00.0001-SNAPSHOT</activemq-messagequeueing.version>
+                <core-messagequeueing.version>3.00.0001-SNAPSHOT</core-messagequeueing.version>
+                <core-io.version>3.00.0001-SNAPSHOT</core-io.version>
+                <core-rest-service.version>3.00.0001-SNAPSHOT</core-rest-service.version>
+                <core-rest-client.version>3.00.0001-SNAPSHOT</core-rest-client.version>
+                <notification-api-client.version>3.00.0001-SNAPSHOT</notification-api-client.version>
+                <archive-api-client.version>3.00.0001-SNAPSHOT</archive-api-client.version>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>archive-api-client</artifactId>
+            <version>${archive-api-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>notification-api-client</artifactId>
+            <version>${notification-api-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>core-io</artifactId>
+            <version>${core-io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>core-rest-service</artifactId>
+            <version>${core-rest-service.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>core-rest-client</artifactId>
+            <version>${core-rest-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>smarsh-core-messagequeueing</artifactId>
+            <version>${core-messagequeueing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>smarsh-core-activemqmessagequeueing</artifactId>
+            <version>${activemq-messagequeueing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Other -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>executable</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
