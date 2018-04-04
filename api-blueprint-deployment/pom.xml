@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>api-blueprint-service-deployment</artifactId>
-    <version>3.00.0001-SNAPSHOT</version>
+    <version>3.0.0001-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>api-blueprint-service-deployment</name>
@@ -12,7 +12,7 @@
     <parent>
         <groupId>com.smarsh</groupId>
         <artifactId>api-blueprint</artifactId>
-        <version>[3.00, 3.01]</version>
+        <version>[3.00,3.01]</version>
     </parent>
 
     <properties>
@@ -28,18 +28,5 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.smarsh</groupId>
-                <artifactId>api-boot-container-maven-plugin</artifactId>
-                <configuration>
-                    <!--           <serviceVersions> -->
-                    <!--             <serviceVersion>2.0.011</serviceVersion> -->
-                    <!--           </serviceVersions> -->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
 
