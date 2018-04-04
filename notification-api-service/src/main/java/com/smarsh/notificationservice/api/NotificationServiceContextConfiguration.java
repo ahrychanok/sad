@@ -101,6 +101,7 @@ public class NotificationServiceContextConfiguration extends WebMvcConfigurerAda
 
     @Bean
     public SpringTemplateEngine templateEngine() {
+
         SpringTemplateEngine engine = new SpringTemplateEngine();
         StringTemplateResolver templateResolver = new StringTemplateResolver();
         templateResolver.setTemplateMode(TemplateMode.HTML);

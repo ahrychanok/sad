@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 public class PathUtil {
 
     private PathUtil() {
+        throw new RuntimeException();
     }
 
     public static String resolvePath(TemplateXmlModel template) {
