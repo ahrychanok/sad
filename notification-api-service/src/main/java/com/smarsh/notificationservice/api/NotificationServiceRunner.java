@@ -14,5 +14,6 @@ public class NotificationServiceRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(NotificationServiceRunner.class, args);
+        throw new RuntimeException();
     }
 }
