@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="api-blueprint-client" />
+    <orderEntry type="library" name="Maven: com.smarsh:api-blueprint-client:3.00.0022" level="project" />
     <orderEntry type="library" name="Maven: com.smarsh:core-rest-client:3.00.0010" level="project" />
     <orderEntry type="module" module-name="core-rest-service" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE" level="project" />
