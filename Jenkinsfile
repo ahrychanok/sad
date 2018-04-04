@@ -1,2 +1,3 @@
 @Library('jenkinsBuildLibs') _
-jenkinsPipelineAPI {}
+javaLibrary {
+}

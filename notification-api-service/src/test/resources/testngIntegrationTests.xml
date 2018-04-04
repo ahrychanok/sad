@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Integration Test suite" verbose="2">
-    <test name="Integration Tests">
-        <packages>
-            <package name="com.smarsh.notificationservice.api.integration.*"/>
-        </packages>
-    </test>
-</suite>
