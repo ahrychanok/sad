@@ -32,7 +32,7 @@
         <dependency>
             <groupId>com.smarsh</groupId>
             <artifactId>core-rest-service</artifactId>
-            <version>3.00.0001-SNAPSHOT</version>
+            <version>${core-rest-.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
