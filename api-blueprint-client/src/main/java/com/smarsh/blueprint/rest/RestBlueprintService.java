@@ -14,6 +14,7 @@ public class RestBlueprintService implements BlueprintService {
         super();
         this.clientOperations = clientOperations;
         this.uriFactory = uriFactory;
+        new RuntimeException();
     }
 
     @Override
