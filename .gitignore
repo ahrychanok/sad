@@ -1,9 +1,14 @@
 /target/
+/.project
+/.classpath
+/.settings/
+**/target/
+test-output/
 .settings/
 .project
 .classpath
-test-output/
-/bin/
 *.iml
+/bin/
+.idea/
 /logs/
-/.sonar/
+/.scannerwork/

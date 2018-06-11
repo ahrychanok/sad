@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>notification-api</artifactId>
+    <artifactId>api-blueprint</artifactId>
     <version>3.00.0001</version>
     <packaging>pom</packaging>
 
@@ -15,9 +14,9 @@
     </parent>
 
     <modules>
-        <module>notification-api-client</module>
-        <module>notification-api-service</module>
-        <module>notification-api-service-deployment</module>
+        <module>api-blueprint-client</module>
+        <module>api-blueprint-service</module>
+        <module>api-blueprint-deployment</module>
+        <module>api-blueprint-database</module>
     </modules>
-
 </project>

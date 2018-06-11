@@ -1,3 +1,0 @@
-# set the node affinity
-Scheduling:
-  Enabled: &scheduling true

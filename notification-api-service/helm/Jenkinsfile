@@ -1,5 +1,0 @@
-@Library('jenkinsBuildLibs') _
-
-helmBuild {
-  chartName = "notification"
-}

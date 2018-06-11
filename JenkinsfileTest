@@ -1,0 +1,95 @@
+@Library('jenkinsBuildLibs') _
+jenkinsPipelineAPI {}
+
+def jenkinsPipelineAPI() {
+node('master') {
+
+    def rtMaven = setupArtifactoryMavenBuild('smarsh-artifactory')
+    def buildInfo
+    def pomFile = 'pom.xml'
+    def pom
+
+    stage('Checkout') {
+        pom = checkoutStage(pomFile)
+    }
+
+    stage('Build') {
+        buildInfo = buildStage(rtMaven, pom)
+    }
+
+    stage('Tests') {
+        testStage(rtMaven)
+    }
+
+    stage('SonarQube') {
+        sonarQubeStage(pom)
+    }
+
+}
+
+def checkoutStage(pomFile) {
+
+    checkout scm
+
+    pom = readMavenPom file: "${pomFile}"
+    pomPackaging = pom.packaging
+    pomArtifactId = pom.artifactId
+    pomVersionSplit = pom.version.tokenize('.')
+    int versionMajorInt = pomVersionSplit[0].toInteger()
+    int versionMinorInt = pomVersionSplit[1].toInteger()
+    int buildNumberInt = currentBuild.number
+
+    versionMinor = String.format("%02d", versionMinorInt)
+    buildNumber = String.format("%04d", buildNumberInt)
+    version = "${versionMajorInt}.${versionMinor}.${buildNumber}"
+    pom.version = version
+    writeMavenPom model: pom
+
+    currentBuild.displayName = "${version}"
+    sh "echo ${version} > version"
+    stash name: 'version', includes: 'version'
+
+    for (String module : pom.getModules()) {
+        dir(module) {
+            modulePom = readMavenPom file: "${pomFile}"
+            modulePom.version = version
+            writeMavenPom model: modulePom
+        }
+    }
+
+    return pom
+}
+
+def sonarQubeStage(pom) {
+
+    def sonarScanner = tool 'Dev-Sonar'
+    def branchName = env.BRANCH_NAME
+
+    if ("${branchName}" == "master") {
+        withSonarQubeEnv('SonarQube') {
+            sh 'echo SONAR-SCANNER'
+            sh "${sonarScanner}/bin/sonar-scanner -D sonar.projectVersion=${pom.version}"
+        }
+    } else {
+        if (env.CHANGE_ID != null) {
+            println 'Start SONAR analyzing for pull-request'
+
+            GIT_REPO_URL = scm.userRemoteConfigs[0].name
+            dev gitRepo = GIT_REPO_URL.replace('https://github.com/', '')
+            echo "Detected Git Repo URL: ${GIT_REPO_URL}"
+            echo "Detected  Changed ID: ${CHANGE_ID}"
+            echo(env.getEnvironment().collect({ environmentVariable -> "${environmentVariable.key} = ${environmentVariable.value}" }).join("\n"))
+            echo(System.getenv().collect({ environmentVariable -> "${environmentVariable.key} = ${environmentVariable.value}" }).join("\n"))
+
+            withCredentials([string(credentialsId: 'ahrychanokOauth', variable: 'TOKEN')]) {
+                sh "${sonarScanner}/bin/sonar-scanner -X " +
+                        "-Dsonar.projectVersion=${version} " +
+                        "-Dsonar.analysis.mode=issues " +
+                        "-Dsonar.github.pullRequest=${CHANGE_ID} " +
+                        "-Dsonar.github.repository=${gitRepo} " +
+                        "-Dsonar.github.oauth=${TOKEN}"
+            }
+        }
+    }
+}
+}

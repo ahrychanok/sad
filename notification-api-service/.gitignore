@@ -1,9 +1,0 @@
-/target/
-.settings/
-.project
-.classpath
-test-output/
-/bin/
-*.iml
-/logs/
-/.sonar/

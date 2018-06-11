@@ -1,7 +1,0 @@
-  curl -X POST \
-   "http://localhost:8100/notifications/templates/upload" \
-  -H "cache-control: no-cache" \
-  -H "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" \
-  -H "postman-token: efd11d66-e0dc-5026-b497-f8c5e643d3c0" \
-  -F "template={\"type\": \"externalJournaling\", \"name\": \"some name\", \"subject\": \"some subject\",\"description\": \"description\",\"engine\": \"thymeleaf\", \"isDefault\": true };type=application/json" \
-  -F "file=@body.html"

@@ -1,51 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.smarsh</groupId>
+        <artifactId>api-blueprint</artifactId>
+        <version>[3.00,3.01]</version>
+    </parent>
 
+    <artifactId>api-blueprint-service</artifactId>
+    <version>3.0.0001-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-  <parent>
-    <groupId>com.smarsh</groupId>
-    <artifactId>api-blueprint</artifactId>
-    <version>2.0.011</version>
-  </parent>
-  <artifactId>api-blueprint-service</artifactId>
-  <version>2.0.011-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <name>api-blueprint-service</name>
+    <url>http://maven.apache.org</url>
 
-  <name>api-blueprint-service</name>
-  <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <core-rest-service.version>[3.00,3.01]</core-rest-service.version>
+        <api-blueprint-clien.version>[3.00,3.01]</api-blueprint-clien.version>
+    </properties>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <core-rest-service.version>[2.00,2.01]</core-rest-service.version>
-    <core-rest-client.version>[2.00,2.01]</core-rest-client.version>
-  </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>api-blueprint-client</artifactId>
+            <version>${api-blueprint-clien.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.smarsh</groupId>
+            <artifactId>core-rest-service</artifactId>
+            <version>${core-rest-service.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.smarsh</groupId>
-      <artifactId>api-blueprint-client</artifactId>
-      <version>2.0.001-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.smarsh</groupId>
-      <artifactId>core-rest-service</artifactId>
-      <version>2.0.001-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-tomcat</artifactId>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 </project>
